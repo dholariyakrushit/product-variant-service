@@ -96,7 +96,7 @@ function ProductListingModel({ modal, toggle, newProductAdd }) {
     if (modal) {
       getProductData();
     }
-  }, [modal]);
+  }, [modal,product]);
 
   return (
     <div>
