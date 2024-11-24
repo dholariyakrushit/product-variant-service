@@ -1,12 +1,15 @@
 @font-face {
   font-family: sfProText;
-  src: url("./assets/fonts/SF-Pro-Text-Regular.otf") format("opentype");
+  src: url("./assets/fonts/SF-Pro-Text-Regular.otf");
 }
 
 body {
   margin: 0;
-  font-family: 'sfProText';
+  font-family: 'sfProText' !important;
   background-color: #F6F6F8;
+}
+input{
+  font-family: 'sfProText' !important;
 }
 
 code {

@@ -1,7 +1,205 @@
 .add-product-container {
-    margin-top: 67px;
-    padding: 67px 253px 0px 253px;
+  margin-top: 67px;
+  padding: 67px 253px 0px 253px;
 }
-.selected-product-section{
-    
+
+.selected-product-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-product-field {
+  display: flex;
+  margin-top: 16px;
+}
+
+.select-product-field h3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000000e5;
+}
+
+.product {
+  padding-left: 61px;
+}
+
+.discount {
+  padding-left: 161px;
+}
+
+.select-product {
+  display: flex;
+  gap: 13px;
+}
+
+.select-product h3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000000e5;
+}
+
+.select-field {
+  position: relative;
+}
+
+.select-field .edit-icon {
+  position: absolute;
+  right: 20px;
+  top: 11px;
+}
+
+.select-field input {
+  width: 215px;
+  height: 32px;
+  opacity: 0px;
+  border: 1px solid #00000012;
+  box-shadow: 0px 2px 4px 0px #0000001a;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+select:focus-visible,
+input:focus-visible {
+  outline-offset: -30px !important;
+}
+
+.add-discount {
+  width: 141px;
+  height: 32px;
+  border-radius: 4px 0px 0px 0px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  background: #008060;
+  border: 2px solid #008060;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.list-icon {
+  width: 7px;
+}
+
+.add-discount-section {
+  display: flex;
+  gap: 13px;
+  margin-top: 16px;
+  align-items: center;
+}
+
+.add-discount-section h3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000000e5;
+  padding-left: 16px;
+}
+
+.add-product-button {
+  width: 193px;
+  height: 48px;
+  top: 257px;
+  left: 520px;
+  gap: 0px;
+  border-radius: 4px 0px 0px 0px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  border: 2px solid #008060;
+  color: #008060;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  margin-left: 212px;
+}
+
+.add-product {
+  margin-top: 21px;
+  /* display: flex; */
+}
+
+.discount-field input {
+  width: 69px;
+  height: 31px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffff;
+  border: 1px solid #0000001a;
+  box-shadow: 0px 2px 4px 0px #0000001a;
+}
+
+.discount-field select {
+  width: 95px;
+  height: 31px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffff;
+  border: 1px solid #0000001a;
+  box-shadow: 0px 2px 4px 0px #0000001a;
+  margin-left: 4px;
+}
+
+.variant-hide-section p {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #006eff;
+  display: flex;
+  justify-content: end;
+  gap: 2px;
+  width: 413px;
+  cursor: pointer;
+}
+
+.variant-section {
+  display: flex;
+  gap: 13px;
+  margin-bottom: 22px;
+  align-items: center;
+}
+
+.variant-name-section p {
+  width: 206px;
+  height: 31px;
+  border: 1px solid #00000012;
+  box-shadow: 0px 2px 4px 0px #0000001a;
+  margin-bottom: 0 !important;
+  padding: 3px 17px;
+  border-radius: 20px;
+}
+
+.variant-name-section {
+  display: flex;
+  gap: 10px;
+}
+
+.variant-section {
+  padding-left: 25px;
+}
+
+.variant-discount input,
+select {
+  border-radius: 20px;
+}
+
+.variant-discount input {
+  padding-left: 10px;
+}
+
+.cross-icon {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
 }

@@ -1,0 +1,147 @@
+.product-model .modal-content {
+  width: 663px;
+  height: 612px;
+  border-radius: 4px 0px 0px 0px;
+  opacity: 0px;
+  border-radius: 5px;
+}
+
+.modal-header {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  padding-bottom: 6px !important;
+  border-bottom: 1px solid #0000001a;
+}
+
+.modal-header .modal-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.modal-body {
+  padding: 0px !important;
+  padding-top: 9px !important;
+}
+
+.search-field {
+  margin: auto;
+  width: fit-content;
+  position: relative;
+}
+
+.search-field input {
+  width: 600px;
+  height: 32px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffff;
+  border: 1px solid #00000012;
+  padding-left: 49px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #00000080;
+}
+
+.search-icon {
+  position: absolute;
+  top: 9px;
+  left: 19px;
+}
+
+.modal-body hr {
+  border: 1px solid #0000001a;
+  margin-top: 9px !important;
+  margin-bottom: 12px !important;
+}
+
+.parent-li input,
+.variant-list input {
+  width: 24px;
+  height: 24px;
+  top: 367px;
+  left: 417px;
+  padding: 6px 4.8px 6px 4.8px;
+  gap: 0px;
+  border-radius: 4px 0px 0px 0px;
+  opacity: 0px;
+  /* color: #008060;     */
+}
+
+.parent-li {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.parent-li p {
+  margin-bottom: 0 !important;
+}
+
+.parent-li input[type="checkbox"] {
+  accent-color: green !important;
+}
+
+.child-ui {
+}
+
+.variant-list {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 35px;
+}
+
+.variant-checkbox {
+  display: flex;
+  gap: 23px;
+}
+
+.variant-price {
+  display: flex;
+  gap: 36px;
+}
+
+.variant-list p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #000000e5;
+}
+
+.add-button {
+  width: 72px;
+  height: 32px;
+  border-radius: 4px;
+  border: 2px 0px 0px 0px;
+  opacity: 0px;
+  border: 2px solid #008060;
+  background-color: #008060 !important;
+  padding-top: 4px !important;
+  padding-bottom: 6px !important;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.cancel-btn {
+  height: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #00000099 !important;
+  padding-top: 5px !important;
+}
+.product-size {
+  margin-right: auto !important;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #000000e5;
+}
+
+
+ul {
+    list-style-type: none;
+  }
