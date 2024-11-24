@@ -76,7 +76,7 @@ function ProductListingModel({ modal, toggle, newProductAdd }) {
       setProduct(searchProduct);
     }, 300);
     return () => clearTimeout(searchTime);
-  }, [search,product]);
+  }, [search, product]);
 
   const getProductData = () => {
     fetch(
@@ -96,7 +96,7 @@ function ProductListingModel({ modal, toggle, newProductAdd }) {
     if (modal) {
       getProductData();
     }
-  }, [modal,product]);
+  }, [modal]);
 
   return (
     <div>
