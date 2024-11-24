@@ -76,7 +76,7 @@ function ProductListingModel({ modal, toggle, newProductAdd }) {
       setProduct(searchProduct);
     }, 300);
     return () => clearTimeout(searchTime);
-  }, [search]);
+  }, [search,product]);
 
   const getProductData = () => {
     fetch(
