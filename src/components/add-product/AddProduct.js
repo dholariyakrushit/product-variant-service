@@ -252,7 +252,7 @@ function AddProduct() {
                                   alt="list icon"
                                   className="list-icon"
                                 />
-                                <div className="select-field">
+                                <div className="select-field" onClick={toggle}>
                                   {index + 1}.{" "}
                                   <input
                                     type="text"
@@ -280,7 +280,7 @@ function AddProduct() {
                                         discountPrice: e.target.value,
                                       })
                                     }
-                                    placeholder="Enter discount"
+                                    placeholder="Discount"
                                   />
                                   <select
                                     onChange={(e) =>
@@ -388,7 +388,7 @@ function AddProduct() {
                                               <div className="discount-field variant-discount">
                                                 <input
                                                   type="text"
-                                                  placeholder="Enter variant discount"
+                                                  placeholder="Discount"
                                                   value={variant.discount || ""}
                                                   onChange={(e) => {
                                                     dispatch({
@@ -447,7 +447,7 @@ function AddProduct() {
                                 )}
                               </StrictModeDroppable>
                             )}
-                            <hr />
+                            <hr className="variant-hr" />
                           </div>
                         )}
                       </Draggable>

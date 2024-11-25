@@ -2,7 +2,6 @@
   width: 663px;
   height: 612px;
   border-radius: 4px 0px 0px 0px;
-  opacity: 0px;
   border-radius: 5px;
 }
 
@@ -23,6 +22,17 @@
 .modal-body {
   padding: 0px !important;
   padding-top: 9px !important;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  --scrollbar-color-thumb:  #6D7175;
+  --scrollbar-color-track:white;
+}
+
+@supports (scrollbar-width: auto) {
+  .modal-body {
+      scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+  }
 }
 
 .search-field {
@@ -35,7 +45,7 @@
   width: 600px;
   height: 32px;
   border: 1px 0px 0px 0px;
-  opacity: 0px;
+
   background: #ffffff;
   border: 1px solid #00000012;
   padding-left: 49px;
@@ -53,8 +63,8 @@
 
 .modal-body hr {
   border: 1px solid #0000001a;
-  margin-top: 9px !important;
-  margin-bottom: 12px !important;
+  margin-top: 12px !important;
+  margin-bottom: 17px !important;
 }
 
 .parent-li input,
@@ -66,7 +76,7 @@
   padding: 6px 4.8px 6px 4.8px;
   gap: 0px;
   border-radius: 4px 0px 0px 0px;
-  opacity: 0px;
+
   /* color: #008060;     */
 }
 
@@ -78,13 +88,11 @@
 
 .parent-li p {
   margin-bottom: 0 !important;
+  padding-left: 8px;
 }
 
-.parent-li input[type="checkbox"] {
-  accent-color: green !important;
-}
-
-.child-ui {
+.parent-li input[type='checkbox'] {
+  accent-color: white !important;
 }
 
 .variant-list {
@@ -96,11 +104,15 @@
 .variant-checkbox {
   display: flex;
   gap: 23px;
+  align-items: center;
 }
 
 .variant-price {
   display: flex;
   gap: 36px;
+}
+.variant-price p {
+  margin-bottom: 0 !important;
 }
 
 .variant-list p {
@@ -115,7 +127,7 @@
   height: 32px;
   border-radius: 4px;
   border: 2px 0px 0px 0px;
-  opacity: 0px;
+
   border: 2px solid #008060;
   background-color: #008060 !important;
   padding-top: 4px !important;
@@ -127,11 +139,14 @@
 
 .cancel-btn {
   height: 32px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
+  width: 104px;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
   color: #00000099 !important;
   padding-top: 5px !important;
+  background: #FFFFFF !important;
+
 }
 .product-size {
   margin-right: auto !important;
@@ -141,7 +156,29 @@
   color: #000000e5;
 }
 
-
 ul {
-    list-style-type: none;
-  }
+  list-style-type: none;
+}
+
+.product-detail-spinner {
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-check-input:checked {
+  background-color: #008060 !important;
+  border-color: #008060 !important;
+}
+
+.variant-title {
+  margin-bottom: 0 !important;
+}
+
+.product-image {
+  border-radius: 4px;
+  height: 36px;
+}
+.variant-hr{
+  width: 450px;
+}

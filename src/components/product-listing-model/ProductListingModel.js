@@ -1,15 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { Input } from "reactstrap";
+import React, { useEffect, useState } from 'react';
+import {
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Spinner,
+} from 'reactstrap';
+import { Input } from 'reactstrap';
 
-import "./ProductListingModel.css";
-import searchIcon from "../../assets/images/search-icon.svg";
+import './ProductListingModel.css';
+import searchIcon from '../../assets/images/search-icon.svg';
 
 function ProductListingModel({ modal, toggle, newProductAdd }) {
   const [product, setProduct] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
-
-  const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [search, setSearch] = useState('');
 
   const initailSelectProduct = (product, variants) => {
     let selectedProducts = { ...product }; // Start with a copy of the product
@@ -64,39 +71,39 @@ function ProductListingModel({ modal, toggle, newProductAdd }) {
   const handleProduct = () => {
     newProductAdd(selectedProduct);
     setSelectedProduct([]);
+    setProduct([]);
+    setSearch('');
     toggle();
   };
 
-  useEffect(() => {
-    const searchTime = setTimeout(() => {
-      const searchProduct = product.filter((item) => {
-        return item?.title?.toLowerCase()?.includes(search?.toLowerCase());
-      });
-
-      setProduct(searchProduct);
-    }, 300);
-    return () => clearTimeout(searchTime);
-  }, [search, product]);
-
-  const getProductData = () => {
+  const getProductData = (search) => {
+    setIsLoading(true);
     fetch(
-      "http://stageapi.monkcommerce.app/task/products/search?search=Hat&page=2&limit=1",
+      `https://stageapi.monkcommerce.app/task/products/search?search=${search}&page=1&limit=20`,
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          "x-api-key": "72njgfa948d9aS7gs5",
+          'x-api-key': '72njgfa948d9aS7gs5',
         },
       }
-    ).then((res) => {
-      setProduct(res.data);
-    });
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        setIsLoading(false);
+        setProduct(res);
+      });
   };
 
   useEffect(() => {
-    if (modal) {
-      getProductData();
-    }
-  }, [modal]);
+    const searchTime =
+      modal &&
+      setTimeout(() => {
+        getProductData(search || '');
+      }, 400);
+    return () => clearTimeout(searchTime);
+  }, [modal, search]);
 
   return (
     <div>
@@ -112,74 +119,86 @@ function ProductListingModel({ modal, toggle, newProductAdd }) {
             />
           </div>
           <hr />
-          <div className="product-detail-section">
-            {product?.map((item) => (
-              <ul className="parent-ul" key={item?.id}>
-                <li>
-                  <div className="parent-li">
-                    <Input
-                      type="checkbox"
-                      onClick={(e) => {
-                        if (e.target.checked) {
-                          initailSelectProduct(item, item.variants);
-                        } else {
-                          removeProductOrVariant(item, item.variants);
-                        }
-                      }}
-                      checked={selectedProduct?.some(
-                        (product) => product.id === item.id
-                      )}
-                    />
-                    <img src={item.image.src} alt="product" width={"36px"} />
-                    <p>{item.title}</p>
-                  </div>
-                  <hr />
-
-                  {item.variants.map((variant) => (
-                    <ul key={variant.id}>
-                      <li className="variant-list">
-                        <div className="variant-checkbox">
-                          <Input
-                            type="checkbox"
-                            onClick={(e) => {
-                              if (e.target.checked) {
-                                initailSelectProduct(item, [variant]); // Correctly pass variant as an array
-                              } else {
-                                removeProductOrVariant(item, [variant]);
-                              }
-                            }}
-                            checked={selectedProduct?.some(
-                              (product) =>
-                                product.id === item.id &&
-                                product.variants?.some(
-                                  (existVariant) =>
-                                    existVariant?.id === variant.id
-                                )
-                            )}
-                          />
-
-                          <p className="variant-title">{variant.title}</p>
-                        </div>
-                        <div className="variant-price">
-                          <p className="variant-available">99 available</p>
-                          <p>$ {variant.price}</p>
-                        </div>
-                      </li>
+          {isLoading ? (
+            <div className="product-detail-spinner">
+              <Spinner>Loading...</Spinner>
+            </div>
+          ) : (
+            <div className="product-detail-section">
+              {product?.length > 0 &&
+                product?.map((item) => (
+                  <ul className="parent-ul" key={item?.id}>
+                    <li>
+                      <div className="parent-li">
+                        <Input
+                          type="checkbox"
+                          onClick={(e) => {
+                            if (e.target.checked) {
+                              initailSelectProduct(item, item.variants);
+                            } else {
+                              removeProductOrVariant(item, item.variants);
+                            }
+                          }}
+                          checked={selectedProduct?.some(
+                            (product) => product.id === item.id
+                          )}
+                        />
+                        <img
+                          src={item.image.src}
+                          alt="product"
+                          width={'36px'}
+                          className="product-image"
+                        />
+                        <p>{item.title}</p>
+                      </div>
                       <hr />
-                    </ul>
-                  ))}
-                </li>
-              </ul>
-            ))}
-          </div>
+
+                      {item.variants.map((variant) => (
+                        <ul key={variant.id}>
+                          <li className="variant-list">
+                            <div className="variant-checkbox">
+                              <Input
+                                type="checkbox"
+                                onClick={(e) => {
+                                  if (e.target.checked) {
+                                    initailSelectProduct(item, [variant]); // Correctly pass variant as an array
+                                  } else {
+                                    removeProductOrVariant(item, [variant]);
+                                  }
+                                }}
+                                checked={selectedProduct?.some(
+                                  (product) =>
+                                    product.id === item.id &&
+                                    product.variants?.some(
+                                      (existVariant) =>
+                                        existVariant?.id === variant.id
+                                    )
+                                )}
+                              />
+
+                              <p className="variant-title">{variant.title}</p>
+                            </div>
+                            <div className="variant-price">
+                              <p className="variant-available">99 available</p>
+                              <p>$ {variant.price}</p>
+                            </div>
+                          </li>
+                          <hr />
+                        </ul>
+                      ))}
+                    </li>
+                  </ul>
+                ))}
+            </div>
+          )}
         </ModalBody>
         <ModalFooter>
           <p className="product-size">
             {selectedProduct?.length} product selected
           </p>
-          <Button className="cancel-btn" onClick={toggle} outline>
+          <Button onClick={toggle} className="cancel-btn">
             Cancel
-          </Button>{" "}
+          </Button>{' '}
           <Button
             color="secondary"
             className="add-button"

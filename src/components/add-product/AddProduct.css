@@ -1,6 +1,6 @@
 .add-product-container {
   margin-top: 67px;
-  padding: 67px 253px 0px 253px;
+  padding: 67px 0px 0px 253px;
 }
 
 .selected-product-section {
@@ -47,13 +47,12 @@
 .select-field .edit-icon {
   position: absolute;
   right: 20px;
-  top: 11px;
+  top: 9px;
 }
 
 .select-field input {
   width: 215px;
   height: 32px;
-  opacity: 0px;
   border: 1px solid #00000012;
   box-shadow: 0px 2px 4px 0px #0000001a;
   font-size: 14px;
@@ -64,6 +63,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding-right: 36px;
+  padding-left: 10px;
 }
 
 select:focus-visible,
@@ -76,7 +76,7 @@ input:focus-visible {
   height: 32px;
   border-radius: 4px 0px 0px 0px;
   border: 2px 0px 0px 0px;
-  opacity: 0px;
+
   background: #008060;
   border: 2px solid #008060;
   font-size: 14px;
@@ -94,7 +94,7 @@ input:focus-visible {
 .add-discount-section {
   display: flex;
   gap: 13px;
-  margin-top: 16px;
+  margin-top: 8px;
   align-items: center;
 }
 
@@ -114,7 +114,6 @@ input:focus-visible {
   gap: 0px;
   border-radius: 4px 0px 0px 0px;
   border: 2px 0px 0px 0px;
-  opacity: 0px;
   border: 2px solid #008060;
   color: #008060;
   border-radius: 5px;
@@ -122,6 +121,7 @@ input:focus-visible {
   font-weight: 600;
   line-height: 20px;
   margin-left: 212px;
+  background: transparent !important;
 }
 
 .add-product {
@@ -133,21 +133,29 @@ input:focus-visible {
   width: 69px;
   height: 31px;
   border: 1px 0px 0px 0px;
-  opacity: 0px;
   background: #ffffff;
   border: 1px solid #0000001a;
   box-shadow: 0px 2px 4px 0px #0000001a;
+  padding-left: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000cc;
 }
 
 .discount-field select {
   width: 95px;
   height: 31px;
   border: 1px 0px 0px 0px;
-  opacity: 0px;
   background: #ffffff;
   border: 1px solid #0000001a;
   box-shadow: 0px 2px 4px 0px #0000001a;
   margin-left: 4px;
+  padding-inline: 13px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000cc;
 }
 
 .variant-hide-section p {
@@ -159,7 +167,7 @@ input:focus-visible {
   display: flex;
   justify-content: end;
   gap: 2px;
-  width: 413px;
+  width: 453px;
   cursor: pointer;
 }
 
@@ -190,7 +198,7 @@ input:focus-visible {
 }
 
 .variant-discount input,
-select {
+.variant-discount select {
   border-radius: 20px;
 }
 
